@@ -26,18 +26,12 @@ router.post('/api/notes', (req,res) => {
 
 
 
-router.delete(`/api/notes/${id}`, (req,res) => {
+// router.delete(`/api/notes/${id}`, (req,res) => {
 
-res.send('received delete request');
-});
+// res.send('received delete request');
+// });
 
-const deleteNote = (id) =>
-  fetch(`/api/notes/${id}`, {
-    method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+
 
 
 module.exports = router;
