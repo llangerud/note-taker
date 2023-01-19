@@ -21,5 +21,20 @@ const readAndAddNote = (content, file) => {
     });
   };
 
+  const readAndDeleteNote = (noteToDelete, file) => {
+    fs.readFile(file, 'utf8', (err,data)=>{
+      if (err) {
+        console.error(err);
+      } else {
+        const parseData = JSON.parse(data);
+        const noteDeletedArray = parseData.filter(note => note.id != noteToDelete)
+        console.log(noteToDelete);
+        console.log(noteDeletedArray);
+        writeToFile(file, noteDeletedArray);
+      }
+      }
+    )}
+  
 
-module.exports = {readingFile, readAndAddNote, writeToFile}
+
+module.exports = {readingFile, readAndAddNote, writeToFile, readAndDeleteNote}
